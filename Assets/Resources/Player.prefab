@@ -286,7 +286,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1133678038514957084
 Transform:
   m_ObjectHideFlags: 0
@@ -1482,6 +1482,7 @@ MonoBehaviour:
   hitVFX: {fileID: 5880797563127281583, guid: 265d3a5ba69981a4698ceabcedf368b0, type: 3}
   danText: {fileID: 1417875226281392497}
   BangdanText: {fileID: 5162321457006421724}
+  _isFiring: 0
   recoverPercent: 0.7
   recoilUp: 0.03
   recoilBack: 0.03
