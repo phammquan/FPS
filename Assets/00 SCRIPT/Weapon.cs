@@ -16,22 +16,18 @@ public class Weapon : MonoBehaviour
 
     private int dan_bangdan = 30;
 
-    [Space]
+    [Space] public Camera camera;
 
-    public Camera camera;
+    [Header("hitVFX")] public GameObject hitVFX;
 
-    [Header("hitVFX")]
-
-    public GameObject hitVFX;
-
-    [Header("DanText")]
-
-    public TextMeshProUGUI danText;
+    [Header("DanText")] public TextMeshProUGUI danText;
     public TextMeshProUGUI BangdanText;
+    private bool _isFiring;
+    private bool _isReloading;
+    public float timeLoad = 3f;
 
-    [Header("Animation")]
-
-    Animator animator;
+    
+    [Header("Animation")] Animator animator;
 
     [Header("Recoil")]
     // [Range(0, 1f)]
@@ -40,11 +36,9 @@ public class Weapon : MonoBehaviour
     [Range(0, 2)]
     public float recoverPercent = 0.7f;
 
-    [Space]
-
-    public float recoilUp = 1f;
+    [Space] public float recoilUp = 1f;
     public float recoilBack = 0f;
-
+    
     private Vector3 originalPosition;
     private Vector3 recoilVelocity = Vector3.zero;
 
@@ -55,9 +49,7 @@ public class Weapon : MonoBehaviour
     private float recoilLength;
     private float recoverLength;
 
-    [Header("Aim")]
-
-    private Vector3 aimPosition;
+    [Header("Aim")] private Vector3 aimPosition;
     private Vector3 aimPosition1;
 
     private Vector3 originalPositionAim;
@@ -78,7 +70,6 @@ public class Weapon : MonoBehaviour
         originalPositionAim = transform.localPosition;
         aimPosition = new Vector3(0, originalPosition.y, originalPosition.z);
         aimPosition1 = new Vector3(-aim, originalPosition.y, originalPosition.z);
-
     }
 
 
@@ -89,36 +80,48 @@ public class Weapon : MonoBehaviour
         {
             nextFire -= Time.deltaTime;
         }
+
         if (Input.GetMouseButton(0) && nextFire <= 0 && dan > 0)
         {
+            _isFiring = true;
             nextFire = 1 / fireRate;
             dan--;
             Fire();
             BangdanText.text = bangdan.ToString();
             danText.text = dan.ToString() + "/" + dan_bangdan.ToString();
         }
-        if (Input.GetKeyDown(KeyCode.R))
+
+        if (Input.GetMouseButtonUp(0))
+        {
+            _isFiring = false;
+        }
+
+        if (Input.GetKeyDown(KeyCode.R) && bangdan > 0 && _isFiring == false)
         {
             animator.SetTrigger("Reload");
             Reload();
         }
+        
+
         if (Input.GetMouseButton(1) == true)
         {
             Aim();
         }
+
         if (Input.GetMouseButton(1) == false)
         {
             UnAim();
         }
+
         if (recoiling)
         {
             Recoil();
         }
+
         if (recovering)
         {
             Recover();
         }
-
     }
 
     void Reload()
@@ -128,9 +131,11 @@ public class Weapon : MonoBehaviour
             bangdan--;
             dan = dan_bangdan;
         }
+
         BangdanText.text = bangdan.ToString();
         danText.text = dan.ToString() + "/" + dan_bangdan.ToString();
     }
+
     public void Fire()
     {
         recoiling = true;
@@ -147,14 +152,15 @@ public class Weapon : MonoBehaviour
                 hit.transform.gameObject.GetComponent<PhotonView>().RPC("TakeDamage", RpcTarget.All, damage);
             }
         }
-
     }
 
     void Recoil()
     {
-        Vector3 finalPosition = new Vector3(originalPosition.x, originalPosition.y + recoilUp, originalPosition.z - recoilBack);
+        Vector3 finalPosition = new Vector3(originalPosition.x, originalPosition.y + recoilUp,
+            originalPosition.z - recoilBack);
 
-        transform.localPosition = Vector3.SmoothDamp(transform.localPosition, finalPosition, ref recoilVelocity, recoilLength);
+        transform.localPosition =
+            Vector3.SmoothDamp(transform.localPosition, finalPosition, ref recoilVelocity, recoilLength);
 
         if (transform.localPosition == finalPosition)
         {
@@ -162,17 +168,18 @@ public class Weapon : MonoBehaviour
             recovering = true;
         }
     }
+
     void Recover()
     {
         Vector3 finalPosition = originalPosition;
-        transform.localPosition = Vector3.SmoothDamp(transform.localPosition, finalPosition, ref recoilVelocity, recoverLength);
+        transform.localPosition =
+            Vector3.SmoothDamp(transform.localPosition, finalPosition, ref recoilVelocity, recoverLength);
 
         if (transform.localPosition == finalPosition)
         {
             recoiling = false;
             recovering = false;
         }
-
     }
 
     void Aim()
@@ -180,10 +187,11 @@ public class Weapon : MonoBehaviour
         originalPosition = aimPosition;
         this.transform.localPosition = Vector3.Lerp(this.transform.localPosition, aimPosition1, 9 * Time.deltaTime);
     }
+
     void UnAim()
     {
         originalPosition = originalPositionAim;
         this.transform.localPosition = Vector3.Lerp(this.transform.localPosition, originalPosition, 9 * Time.deltaTime);
     }
-
+    
 }
