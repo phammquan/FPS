@@ -22,7 +22,11 @@ public class Weapon : MonoBehaviour
 
     [Header("DanText")] public TextMeshProUGUI danText;
     public TextMeshProUGUI BangdanText;
-    public bool _isFiring;
+    private bool _isFiring;
+    private bool _isReloading;
+    public float timeLoad = 3f;
+
+    
     [Header("Animation")] Animator animator;
 
     [Header("Recoil")]
@@ -34,7 +38,7 @@ public class Weapon : MonoBehaviour
 
     [Space] public float recoilUp = 1f;
     public float recoilBack = 0f;
-
+    
     private Vector3 originalPosition;
     private Vector3 recoilVelocity = Vector3.zero;
 
@@ -97,6 +101,7 @@ public class Weapon : MonoBehaviour
             animator.SetTrigger("Reload");
             Reload();
         }
+        
 
         if (Input.GetMouseButton(1) == true)
         {
@@ -188,4 +193,5 @@ public class Weapon : MonoBehaviour
         originalPosition = originalPositionAim;
         this.transform.localPosition = Vector3.Lerp(this.transform.localPosition, originalPosition, 9 * Time.deltaTime);
     }
+    
 }
