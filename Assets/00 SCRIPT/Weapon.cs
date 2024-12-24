@@ -14,7 +14,7 @@ public class Weapon : MonoBehaviour
     public int bangdan = 5;
     public int dan;
 
-    private int dan_bangdan = 30;
+    public int dan_bangdan;
 
     [Space] public Camera camera;
 
@@ -23,10 +23,13 @@ public class Weapon : MonoBehaviour
     [Header("DanText")] public TextMeshProUGUI danText;
     public TextMeshProUGUI BangdanText;
     private bool _isFiring;
-    public float timeLoad = 3f;
+    private float timeLoad;
+    public float timeLoad1;
+    public float timeLoad2;
+
     public bool isReloading;
 
-    
+
     [Header("Animation")] Animator animator;
 
     [Header("Recoil")]
@@ -38,7 +41,7 @@ public class Weapon : MonoBehaviour
 
     [Space] public float recoilUp = 1f;
     public float recoilBack = 0f;
-    
+
     private Vector3 originalPosition;
     private Vector3 recoilVelocity = Vector3.zero;
 
@@ -56,10 +59,13 @@ public class Weapon : MonoBehaviour
 
     public float aim;
 
+    [Header("Recoil")] public bool semi;
+
 
     void Start()
     {
         animator = this.transform.GetComponent<Animator>();
+
         BangdanText.text = bangdan.ToString();
         danText.text = dan.ToString() + "/" + dan_bangdan.ToString();
         originalPosition = transform.localPosition;
@@ -75,74 +81,97 @@ public class Weapon : MonoBehaviour
 
     // Update is called once per frame
     void Update()
-{
-    if (nextFire > 0)
     {
-        nextFire -= Time.deltaTime;
-    }
-
-    if (Input.GetMouseButton(0) && nextFire <= 0 && dan > 0 && !isReloading)
-    {
-        _isFiring = true;
-        nextFire = 1 / fireRate;
-        dan--;
-        Fire();
-        BangdanText.text = bangdan.ToString();
-        danText.text = dan.ToString() + "/" + dan_bangdan.ToString();
-    }
-
-    if (Input.GetMouseButtonUp(0))
-    {
-        _isFiring = false;
-    }
-
-    if (Input.GetKeyDown(KeyCode.R) && bangdan > 0 && !_isFiring && !isReloading)
-    {
-        if (dan <= 0)
+        if (nextFire > 0)
         {
-            animator.SetTrigger("Reload");
+            nextFire -= Time.deltaTime;
+        }
+
+        if (semi == true)
+        {
+            if (Input.GetMouseButtonDown(0) && nextFire <= 0 && dan > 0 && !isReloading)
+            {
+                animator.SetTrigger("Fire");
+                _isFiring = true;
+                nextFire = 1 / fireRate;
+                dan--;
+                Fire();
+                BangdanText.text = bangdan.ToString();
+                danText.text = dan.ToString() + "/" + dan_bangdan.ToString();
+            }
         }
         else
         {
-            animator.SetTrigger("Reload2");
+            if (Input.GetMouseButton(0) && nextFire <= 0 && dan > 0 && !isReloading)
+            {
+                animator.SetTrigger("Fire");
+                _isFiring = true;
+                nextFire = 1 / fireRate;
+                dan--;
+                Fire();
+                BangdanText.text = bangdan.ToString();
+                danText.text = dan.ToString() + "/" + dan_bangdan.ToString();
+            }
         }
-        StartCoroutine(Reload());
-    }
 
-    if (Input.GetMouseButton(1))
-    {
-        Aim();
-    }
 
-    if (!Input.GetMouseButton(1))
-    {
-        UnAim();
-    }
+        if (Input.GetMouseButtonUp(0))
+        {
+            _isFiring = false;
+        }
 
-    if (recoiling)
-    {
-        Recoil();
-    }
+        if (Input.GetKeyDown(KeyCode.R) && bangdan > 0 && !_isFiring && !isReloading)
+        {
+            if (dan <= 0)
+            {
+                timeLoad = timeLoad1;
+                animator.SetTrigger("Reload");
+            }
+            else
+            {
+                timeLoad = timeLoad2;
+                animator.SetTrigger("Reload2");
+            }
 
-    if (recovering)
-    {
-        Recover();
+            StartCoroutine(Reload());
+        }
+
+        if (Input.GetMouseButton(1))
+        {
+            Aim();
+        }
+
+        if (!Input.GetMouseButton(1))
+        {
+            UnAim();
+        }
+
+        if (recoiling)
+        {
+            Recoil();
+        }
+
+        if (recovering)
+        {
+            Recover();
+        }
     }
-}
 
     IEnumerator Reload()
     {
         isReloading = true;
-        yield return new WaitForSeconds(timeLoad); 
+        yield return new WaitForSeconds(timeLoad);
         if (bangdan > 0)
         {
             bangdan--;
             dan = dan_bangdan;
         }
+
         BangdanText.text = bangdan.ToString();
         danText.text = dan.ToString() + "/" + dan_bangdan.ToString();
         isReloading = false;
     }
+
     public void Fire()
     {
         recoiling = true;
@@ -200,5 +229,4 @@ public class Weapon : MonoBehaviour
         originalPosition = originalPositionAim;
         this.transform.localPosition = Vector3.Lerp(this.transform.localPosition, originalPosition, 9 * Time.deltaTime);
     }
-    
 }
