@@ -6,8 +6,15 @@
   <component name="ChangeListManager">
     <list default="true" id="fda17205-d5ad-430c-9702-add5ad3bc63e" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.FPS_Multiplayer/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.FPS_Multiplayer/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/01 WEAPONS/source/arms@ak.controller" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/01 WEAPONS/source/arms@ak.controller" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/00 SCRIPT/Health.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/00 SCRIPT/Health.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/00 SCRIPT/PlayerSetUp.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/00 SCRIPT/PlayerSetUp.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/00 SCRIPT/SwitchWeapons.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/00 SCRIPT/SwitchWeapons.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/00 SCRIPT/Weapon.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/00 SCRIPT/Weapon.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Bananadev's Pack/MouseLook.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Bananadev's Pack/MouseLook.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Photon/PhotonUnityNetworking/Resources/PhotonServerSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Photon/PhotonUnityNetworking/Resources/PhotonServerSettings.asset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Resources/Player.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Player.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -22,6 +29,12 @@
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
+  "lastFilter": {
+    "state": "OPEN",
+    "assignee": "phammquan"
+  }
+}]]></component>
   <component name="GithubPullRequestsUISettings">{
   &quot;selectedUrlAndAccountId&quot;: {
     &quot;url&quot;: &quot;https://github.com/phammquan/FPS.git&quot;,
@@ -50,13 +63,13 @@
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "preferences.pluginManager",
+    "settings.editor.selected.configurable": "editor.preferences.smartKeys_rider",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
   <component name="RunManager" selected="Attach to Unity Editor.Attach to Unity Editor">
     <configuration name="Standalone Player" type="RunUnityExe" factoryName="Unity Executable">
-      <option name="EXE_PATH" value="$PROJECT_DIR$/New folder\FPS_Multiplayer.exe" />
+      <option name="EXE_PATH" value="$PROJECT_DIR$/../../test\FPS_Multiplayer.exe" />
       <option name="PROGRAM_PARAMETERS" value="" />
       <option name="WORKING_DIRECTORY" value="D:\Demo\New folder" />
       <option name="PASS_PARENT_ENVS" value="1" />
@@ -109,13 +122,15 @@
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="9f7ad524-ade7-44fa-ba26-87a86c28913f" name="Changes" comment="" />
+      <changelist id="fda17205-d5ad-430c-9702-add5ad3bc63e" name="Changes" comment="" />
       <created>1734081749975</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1734081749975</updated>
       <workItem from="1734081753530" duration="125000" />
       <workItem from="1734081917855" duration="3008000" />
+      <workItem from="1735043446557" duration="24000" />
+      <workItem from="1735043637732" duration="6227000" />
     </task>
     <servers />
   </component>
@@ -131,5 +146,9 @@
   <component name="UnityUnitTestConfiguration" currentTestLauncher="Both" />
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
   </component>
 </project>

@@ -22,9 +22,10 @@ public class MouseLook : MonoBehaviour
     private Vector2 _smoothMouse;
 
     private Vector2 mouseDelta;
-
+    
     [HideInInspector]
     public bool scoped;
+    private bool check = false;
 
     void Start()
     {
@@ -51,6 +52,21 @@ public class MouseLook : MonoBehaviour
 
     void Update()
     {
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            if(!check)
+            {
+                check = true;
+                Cursor.lockState = CursorLockMode.None;
+                Cursor.visible = true;
+            }
+            else
+            {
+                check = false;
+                Cursor.lockState = CursorLockMode.Locked;
+                Cursor.visible = false;
+            }
+        }
         // Allow the script to clamp based on a desired target value.
         var targetOrientation = Quaternion.Euler(targetDirection);
         var targetCharacterOrientation = Quaternion.Euler(targetCharacterDirection);

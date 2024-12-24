@@ -62,7 +62,7 @@ public class Weapon : MonoBehaviour
     [Header("Recoil")] public bool semi;
 
 
-    void Start()
+    void Awake()
     {
         animator = this.transform.GetComponent<Animator>();
 

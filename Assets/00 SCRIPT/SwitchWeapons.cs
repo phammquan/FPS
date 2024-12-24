@@ -1,13 +1,16 @@
 using System.Collections;
 using System.Collections.Generic;
+using Photon.Pun;
 using UnityEngine;
 
 public class SwitchWeapons : MonoBehaviour
 {
+    public PhotonView playerSetUpView;
+
     private int selectedWeapon = 0;
     public Animation _Animation;
     public AnimationClip _switch;
-    
+
     void Start()
     {
         SelectWeapon();
@@ -20,49 +23,54 @@ public class SwitchWeapons : MonoBehaviour
 
         if (Input.GetAxis("Mouse ScrollWheel") > 0f)
         {
-            if(selectedWeapon >= transform.childCount - 1)
+            if (selectedWeapon >= transform.childCount - 1)
                 selectedWeapon = 0;
             else
                 selectedWeapon++;
         }
+
         if (Input.GetAxis("Mouse ScrollWheel") < 0f)
         {
-            if(selectedWeapon <= 0)
+            if (selectedWeapon <= 0)
                 selectedWeapon = transform.childCount - 1;
             else
                 selectedWeapon--;
         }
-        
+
         if (Input.GetKeyDown(KeyCode.Alpha1))
         {
             selectedWeapon = 0;
         }
+
         if (Input.GetKeyDown(KeyCode.Alpha2))
         {
             selectedWeapon = 1;
         }
+
         if (Input.GetKeyDown(KeyCode.Alpha3))
         {
             selectedWeapon = 2;
         }
+
         if (Input.GetKeyDown(KeyCode.Alpha4))
         {
             selectedWeapon = 3;
         }
+
         if (Input.GetKeyDown(KeyCode.Alpha5))
         {
             selectedWeapon = 4;
         }
-        
-        if(previousSelectedWeapon != selectedWeapon)
+
+        if (previousSelectedWeapon != selectedWeapon)
             SelectWeapon();
-        
     }
-    
+
     void SelectWeapon()
     {
-        
-        if(selectedWeapon >= transform.childCount)
+        playerSetUpView.RPC("SetTpweapon", RpcTarget.All, selectedWeapon);
+
+        if (selectedWeapon >= transform.childCount)
             selectedWeapon = 0;
         _Animation.Stop();
         _Animation.Play(_switch.name);
@@ -77,6 +85,7 @@ public class SwitchWeapons : MonoBehaviour
             {
                 _weapon.gameObject.SetActive(false);
             }
+
             i++;
         }
     }

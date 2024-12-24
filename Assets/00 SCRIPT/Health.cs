@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using Photon.Pun;
 using TMPro;
@@ -10,6 +11,7 @@ public class Health : MonoBehaviour
 
 
     [Header("HealthText")] public TextMeshProUGUI healthText;
+    public bool deadzone;
 
 
     [PunRPC]
@@ -19,12 +21,26 @@ public class Health : MonoBehaviour
         healthText.text = health.ToString();
         if (health <= 0)
         {
+            deadzone = false;
             if (IsLocalPlayer)
             {
                 RoomManager.instance.SpawmnPlayer();
             }
-
             Destroy(gameObject);
+        }
+    }
+
+    private void FixedUpdate()
+    {
+        if(deadzone)
+            TakeDamage(100);
+    }
+
+    public void OnCollisionEnter(Collision other)
+    {
+        if(other.gameObject.CompareTag("DeadZone"))
+        {
+            deadzone = true;
         }
     }
 }
