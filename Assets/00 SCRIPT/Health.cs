@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
 using Photon.Pun;
 using TMPro;
 using UnityEngine;
@@ -10,9 +9,8 @@ public class Health : MonoBehaviour
     public bool IsLocalPlayer;
 
 
-    [Header("HealthText")]
+    [Header("HealthText")] public TextMeshProUGUI healthText;
 
-    public TextMeshProUGUI healthText;
 
     [PunRPC]
     public void TakeDamage(int damage)
@@ -25,6 +23,7 @@ public class Health : MonoBehaviour
             {
                 RoomManager.instance.SpawmnPlayer();
             }
+
             Destroy(gameObject);
         }
     }
