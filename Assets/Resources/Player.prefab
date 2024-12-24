@@ -1770,6 +1770,7 @@ MonoBehaviour:
   danText: {fileID: 1417875226281392497}
   BangdanText: {fileID: 5162321457006421724}
   timeLoad: 3
+  isReloading: 0
   recoverPercent: 0.7
   recoilUp: 0.03
   recoilBack: 0.03
@@ -2406,6 +2407,7 @@ MonoBehaviour:
   danText: {fileID: 1417875226281392497}
   BangdanText: {fileID: 5162321457006421724}
   timeLoad: 3
+  isReloading: 0
   recoverPercent: 0.7
   recoilUp: 0.03
   recoilBack: 0.03
