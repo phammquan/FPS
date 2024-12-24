@@ -23,8 +23,8 @@ public class Weapon : MonoBehaviour
     [Header("DanText")] public TextMeshProUGUI danText;
     public TextMeshProUGUI BangdanText;
     private bool _isFiring;
-    private bool _isReloading;
     public float timeLoad = 3f;
+    public bool isReloading;
 
     
     [Header("Animation")] Animator animator;
@@ -75,67 +75,74 @@ public class Weapon : MonoBehaviour
 
     // Update is called once per frame
     void Update()
+{
+    if (nextFire > 0)
     {
-        if (nextFire > 0)
-        {
-            nextFire -= Time.deltaTime;
-        }
-
-        if (Input.GetMouseButton(0) && nextFire <= 0 && dan > 0)
-        {
-            _isFiring = true;
-            nextFire = 1 / fireRate;
-            dan--;
-            Fire();
-            BangdanText.text = bangdan.ToString();
-            danText.text = dan.ToString() + "/" + dan_bangdan.ToString();
-        }
-
-        if (Input.GetMouseButtonUp(0))
-        {
-            _isFiring = false;
-        }
-
-        if (Input.GetKeyDown(KeyCode.R) && bangdan > 0 && _isFiring == false)
-        {
-            animator.SetTrigger("Reload");
-            Reload();
-        }
-        
-
-        if (Input.GetMouseButton(1) == true)
-        {
-            Aim();
-        }
-
-        if (Input.GetMouseButton(1) == false)
-        {
-            UnAim();
-        }
-
-        if (recoiling)
-        {
-            Recoil();
-        }
-
-        if (recovering)
-        {
-            Recover();
-        }
+        nextFire -= Time.deltaTime;
     }
 
-    void Reload()
+    if (Input.GetMouseButton(0) && nextFire <= 0 && dan > 0 && !isReloading)
     {
+        _isFiring = true;
+        nextFire = 1 / fireRate;
+        dan--;
+        Fire();
+        BangdanText.text = bangdan.ToString();
+        danText.text = dan.ToString() + "/" + dan_bangdan.ToString();
+    }
+
+    if (Input.GetMouseButtonUp(0))
+    {
+        _isFiring = false;
+    }
+
+    if (Input.GetKeyDown(KeyCode.R) && bangdan > 0 && !_isFiring && !isReloading)
+    {
+        if (dan <= 0)
+        {
+            animator.SetTrigger("Reload");
+        }
+        else
+        {
+            animator.SetTrigger("Reload2");
+        }
+        StartCoroutine(Reload());
+    }
+
+    if (Input.GetMouseButton(1))
+    {
+        Aim();
+    }
+
+    if (!Input.GetMouseButton(1))
+    {
+        UnAim();
+    }
+
+    if (recoiling)
+    {
+        Recoil();
+    }
+
+    if (recovering)
+    {
+        Recover();
+    }
+}
+
+    IEnumerator Reload()
+    {
+        isReloading = true;
+        yield return new WaitForSeconds(timeLoad); 
         if (bangdan > 0)
         {
             bangdan--;
             dan = dan_bangdan;
         }
-
         BangdanText.text = bangdan.ToString();
         danText.text = dan.ToString() + "/" + dan_bangdan.ToString();
+        isReloading = false;
     }
-
     public void Fire()
     {
         recoiling = true;
