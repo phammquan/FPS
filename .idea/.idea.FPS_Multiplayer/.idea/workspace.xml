@@ -6,15 +6,8 @@
   <component name="ChangeListManager">
     <list default="true" id="fda17205-d5ad-430c-9702-add5ad3bc63e" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.FPS_Multiplayer/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.FPS_Multiplayer/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/00 SCRIPT/Health.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/00 SCRIPT/Health.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/00 SCRIPT/PlayerSetUp.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/00 SCRIPT/PlayerSetUp.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/00 SCRIPT/SwitchWeapons.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/00 SCRIPT/SwitchWeapons.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/00 SCRIPT/Weapon.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/00 SCRIPT/Weapon.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Bananadev's Pack/MouseLook.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Bananadev's Pack/MouseLook.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Photon/PhotonUnityNetworking/Resources/PhotonServerSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Photon/PhotonUnityNetworking/Resources/PhotonServerSettings.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Player.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Player.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/TextMesh Pro/Resources/Fonts &amp; Materials/LiberationSans SDF.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/TextMesh Pro/Resources/Fonts &amp; Materials/LiberationSans SDF.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -29,12 +22,12 @@
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
-  "lastFilter": {
-    "state": "OPEN",
-    "assignee": "phammquan"
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;phammquan&quot;
   }
-}]]></component>
+}</component>
   <component name="GithubPullRequestsUISettings">{
   &quot;selectedUrlAndAccountId&quot;: {
     &quot;url&quot;: &quot;https://github.com/phammquan/FPS.git&quot;,
@@ -52,21 +45,22 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "git-widget-placeholder": "main",
-    "ignore.virus.scanning.warn.message": "true",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "editor.preferences.smartKeys_rider",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Attach to Unity Editor.Attach to Unity Editor.executor&quot;: &quot;Debug&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;dev&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;editor.preferences.smartKeys_rider&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RunManager" selected="Attach to Unity Editor.Attach to Unity Editor">
     <configuration name="Standalone Player" type="RunUnityExe" factoryName="Unity Executable">
       <option name="EXE_PATH" value="$PROJECT_DIR$/../../test\FPS_Multiplayer.exe" />
@@ -77,7 +71,7 @@
       <method v="2" />
     </configuration>
     <configuration name="Start Unity" type="RunUnityExe" factoryName="Unity Executable">
-      <option name="EXE_PATH" value="D:\Program Files\Unity\2022.3.16f1\Editor\Unity.exe" />
+      <option name="EXE_PATH" value="C:\Program Files\2022.3.16f1\Editor\Unity.exe" />
       <option name="PROGRAM_PARAMETERS" value="-projectPath D:\Demo\FPS_Multiplayer -debugCodeOptimization" />
       <option name="WORKING_DIRECTORY" value="D:\Demo\FPS_Multiplayer" />
       <option name="PASS_PARENT_ENVS" value="1" />
@@ -85,7 +79,7 @@
       <method v="2" />
     </configuration>
     <configuration name="Unit Tests (batch mode)" type="RunUnityExe" factoryName="Unity Executable">
-      <option name="EXE_PATH" value="D:\Program Files\Unity\2022.3.16f1\Editor\Unity.exe" />
+      <option name="EXE_PATH" value="C:\Program Files\2022.3.16f1\Editor\Unity.exe" />
       <option name="PROGRAM_PARAMETERS" value="-runTests -batchmode -projectPath D:\Demo\FPS_Multiplayer -testResults Logs/results.xml -logFile Logs/Editor.log -testPlatform EditMode -debugCodeOptimization" />
       <option name="WORKING_DIRECTORY" value="D:\Demo\FPS_Multiplayer" />
       <option name="PASS_PARENT_ENVS" value="1" />
@@ -131,6 +125,10 @@
       <workItem from="1734081917855" duration="3008000" />
       <workItem from="1735043446557" duration="24000" />
       <workItem from="1735043637732" duration="6227000" />
+      <workItem from="1735187590432" duration="671000" />
+      <workItem from="1735643717247" duration="101000" />
+      <workItem from="1735707656186" duration="282000" />
+      <workItem from="1735887792523" duration="1306000" />
     </task>
     <servers />
   </component>

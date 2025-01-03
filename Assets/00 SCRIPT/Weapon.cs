@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using Photon.Pun;
+using Photon.Pun.UtilityScripts;
 using TMPro;
 using UnityEngine;
 using UnityEngine.VFX;
@@ -185,6 +186,10 @@ public class Weapon : MonoBehaviour
             PhotonNetwork.Instantiate(hitVFX.name, hit.point, Quaternion.identity);
             if (hit.transform.gameObject.GetComponent<Health>())
             {
+                if (damage > hit.transform.gameObject.GetComponent<Health>().health)
+                {
+                    PhotonNetwork.LocalPlayer.AddScore(1);
+                }
                 hit.transform.gameObject.GetComponent<PhotonView>().RPC("TakeDamage", RpcTarget.All, damage);
             }
         }
