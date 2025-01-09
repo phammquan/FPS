@@ -61,6 +61,7 @@ public class Weapon : MonoBehaviour
     public float aim;
 
     [Header("Recoil")] public bool semi;
+    private bool isAiming = false;
 
 
     void Awake()
@@ -90,33 +91,70 @@ public class Weapon : MonoBehaviour
 
         if (semi == true)
         {
-            if (Input.GetMouseButtonDown(0) && nextFire <= 0 && dan > 0 && !isReloading)
+            if (Input.GetMouseButtonDown(0) && nextFire <= 0 && !isReloading)
             {
-                animator.SetTrigger("Fire");
-                _isFiring = true;
-                nextFire = 1 / fireRate;
-                dan--;
-                Fire();
-                BangdanText.text = bangdan.ToString();
-                danText.text = dan.ToString() + "/" + dan_bangdan.ToString();
+                if (dan > 0)
+                {
+                    animator.SetTrigger("Fire");
+                    _isFiring = true;
+                    nextFire = 1 / fireRate;
+                    dan--;
+                    Fire();
+                    BangdanText.text = bangdan.ToString();
+                    danText.text = dan.ToString() + "/" + dan_bangdan.ToString();
+                }
+                else if(bangdan > 0 && !_isFiring && !isReloading)
+                {
+                    if (dan <= 0)
+                    {
+                        timeLoad = timeLoad1;
+                        animator.SetTrigger("Reload");
+                    }
+                    else
+                    {
+                        timeLoad = timeLoad2;
+                        animator.SetTrigger("Reload2");
+                    }
+
+                    StartCoroutine(Reload());
+                }
+                
             }
         }
         else
         {
-            if (Input.GetMouseButton(0) && nextFire <= 0 && dan > 0 && !isReloading)
+            if (Input.GetMouseButton(0) && nextFire <= 0 && !isReloading)
             {
-                animator.SetTrigger("Fire");
-                _isFiring = true;
-                nextFire = 1 / fireRate;
-                dan--;
-                Fire();
-                BangdanText.text = bangdan.ToString();
-                danText.text = dan.ToString() + "/" + dan_bangdan.ToString();
+                if (dan > 0)
+                {
+                    animator.SetTrigger("Fire");
+                    _isFiring = true;
+                    nextFire = 1 / fireRate;
+                    dan--;
+                    Fire();
+                    BangdanText.text = bangdan.ToString();
+                    danText.text = dan.ToString() + "/" + dan_bangdan.ToString();
+                }
+                else if(bangdan > 0 && !_isFiring && !isReloading)
+                {
+                    if (dan <= 0)
+                    {
+                        timeLoad = timeLoad1;
+                        animator.SetTrigger("Reload");
+                    }
+                    else
+                    {
+                        timeLoad = timeLoad2;
+                        animator.SetTrigger("Reload2");
+                    }
+
+                    StartCoroutine(Reload());
+                }
             }
         }
 
 
-        if (Input.GetMouseButtonUp(0))
+        if (Input.GetMouseButtonUp(0) || dan <= 0)
         {
             _isFiring = false;
         }
@@ -137,12 +175,16 @@ public class Weapon : MonoBehaviour
             StartCoroutine(Reload());
         }
 
-        if (Input.GetMouseButton(1))
+        if (Input.GetMouseButtonDown(1))
+        {
+            isAiming = !isAiming;
+        }
+
+        if (isAiming)
         {
             Aim();
         }
-
-        if (!Input.GetMouseButton(1))
+        else
         {
             UnAim();
         }
@@ -186,7 +228,7 @@ public class Weapon : MonoBehaviour
             PhotonNetwork.Instantiate(hitVFX.name, hit.point, Quaternion.identity);
             if (hit.transform.gameObject.GetComponent<Health>())
             {
-                if (damage > hit.transform.gameObject.GetComponent<Health>().health)
+                if (damage >= hit.transform.gameObject.GetComponent<Health>().health)
                 {
                     PhotonNetwork.LocalPlayer.AddScore(1);
                 }
