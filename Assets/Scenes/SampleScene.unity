@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.44657826, g: 0.49641263, b: 0.57481676, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -725,6 +725,7 @@ GameObject:
   - component: {fileID: 99973236}
   - component: {fileID: 99973235}
   - component: {fileID: 99973234}
+  - component: {fileID: 99973237}
   m_Layer: 5
   m_Name: Name_Screen
   m_TagString: Untagged
@@ -816,6 +817,19 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
+--- !u!114 &99973237
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 99973232}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 934f44da7d928a24caec875fc9941b81, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inputField: {fileID: 1648058702}
 --- !u!1001 &116630709
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -838,7 +852,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3648183983425333377, guid: aa27f5a7d33f4c948ba42c31aec1970b, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 46.94
+      value: 46.199997
       objectReference: {fileID: 0}
     - target: {fileID: 3648183983425333377, guid: aa27f5a7d33f4c948ba42c31aec1970b, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1633,7 +1647,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3648183983425333377, guid: aa27f5a7d33f4c948ba42c31aec1970b, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 46.81
+      value: 46.446
       objectReference: {fileID: 0}
     - target: {fileID: 3648183983425333377, guid: aa27f5a7d33f4c948ba42c31aec1970b, type: 3}
       propertyPath: m_LocalPosition.z
@@ -2068,6 +2082,7 @@ MonoBehaviour:
   RoomCamera: {fileID: 1834371166}
   nicknameUI: {fileID: 99973232}
   connectUI: {fileID: 1325352491}
+  _isConnected: 0
 --- !u!4 &448038923
 Transform:
   m_ObjectHideFlags: 0
@@ -2213,7 +2228,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3648183983425333377, guid: aa27f5a7d33f4c948ba42c31aec1970b, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 46.23
+      value: 46.118
       objectReference: {fileID: 0}
     - target: {fileID: 3648183983425333377, guid: aa27f5a7d33f4c948ba42c31aec1970b, type: 3}
       propertyPath: m_LocalPosition.z
@@ -2605,15 +2620,15 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 14
-  m_fontSizeBase: 14
+  m_fontSize: 28.9
+  m_fontSizeBase: 28.9
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
   m_HorizontalAlignment: 1
-  m_VerticalAlignment: 256
+  m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
   m_wordSpacing: 0
@@ -3061,7 +3076,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3648183983425333377, guid: aa27f5a7d33f4c948ba42c31aec1970b, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 46.491173
+      value: 45.75117
       objectReference: {fileID: 0}
     - target: {fileID: 3648183983425333377, guid: aa27f5a7d33f4c948ba42c31aec1970b, type: 3}
       propertyPath: m_LocalPosition.z
@@ -5600,7 +5615,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3648183983425333377, guid: aa27f5a7d33f4c948ba42c31aec1970b, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 47.52
+      value: 46.78
       objectReference: {fileID: 0}
     - target: {fileID: 3648183983425333377, guid: aa27f5a7d33f4c948ba42c31aec1970b, type: 3}
       propertyPath: m_LocalPosition.z

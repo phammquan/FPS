@@ -2,10 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Photon.Pun;
+using Unity.VisualScripting;
 
 public class RoomManager : MonoBehaviourPunCallbacks
 {
-    public static RoomManager instance;
+    private static RoomManager _instance;
+    public static RoomManager Instance => _instance;
 
     public GameObject player;
     [Space]
@@ -17,11 +19,21 @@ public class RoomManager : MonoBehaviourPunCallbacks
     public GameObject connectUI;
 
     private string _nickname = "Null";
+    public bool _isConnected = false;
+    
     
     
     void Awake()
     {
-        instance = this;
+        _instance = this;
+    }
+
+    void Update()
+    {
+        if (!_isConnected && Input.GetKeyDown(KeyCode.Return))
+        {
+            ButtonJoinRoom();
+        }
     }
 
     public void ChangeName(string _name)
@@ -37,15 +49,11 @@ public class RoomManager : MonoBehaviourPunCallbacks
         connectUI.SetActive(true);
     }
     
-    void Start()
-    {
-       
-
-    }
 
     public override void OnConnectedToMaster()
     {
         base.OnConnectedToMaster();
+        _isConnected = true;
         Debug.Log("Connected to server");
         PhotonNetwork.JoinLobby();
     }

@@ -24,7 +24,7 @@ public class Health : MonoBehaviour
             deadzone = false;
             if (IsLocalPlayer)
             {
-                RoomManager.instance.SpawmnPlayer();
+                RoomManager.Instance.SpawmnPlayer();
             }
             Destroy(gameObject);
         }
